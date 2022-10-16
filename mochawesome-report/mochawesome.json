@@ -1,0 +1,216 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-10-12T11:12:53.263Z",
+    "end": "2022-10-12T11:12:53.317Z",
+    "duration": 54,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "837571c5-8ac7-4bc1-9578-93af42ea5ece",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "96bdcc9c-54f9-4260-b6e3-aab9ac7b8136",
+          "title": "Testing Basic APIS sending message",
+          "fullFile": "E:\\ns\\create-newton-project-cli\\postclass\\abcd\\response-methodss\\__tests__\\test.js",
+          "file": "\\__tests__\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": " GET Request /",
+              "fullTitle": "Testing Basic APIS sending message  GET Request /",
+              "timedOut": false,
+              "duration": 25,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .get(\"/\")\n  .end((err, res) => {\n    expect(res).to.be.html;\n    expect(res.text).to.equals('Hello Newton School');\n    done();\n  });",
+              "err": {},
+              "uuid": "15747258-f6c6-428f-8508-7912c0b5edbc",
+              "parentUUID": "96bdcc9c-54f9-4260-b6e3-aab9ac7b8136",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "15747258-f6c6-428f-8508-7912c0b5edbc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        },
+        {
+          "uuid": "8bf93d94-1562-43c2-9f1c-898164e1fb9e",
+          "title": "GET /tasks",
+          "fullFile": "E:\\ns\\create-newton-project-cli\\postclass\\abcd\\response-methodss\\__tests__\\test.js",
+          "file": "\\__tests__\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "It should GET all the tasks",
+              "fullTitle": "GET /tasks It should GET all the tasks",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n    .get(\"/tasks\")\n    .end((err, response) => {\n        response.should.have.status(200);\n        response.body.should.be.a('array');\n        response.body.length.should.be.eq(3);\n    done();\n    });",
+              "err": {},
+              "uuid": "b6f61a41-821a-4209-86ed-211ebf7e1d24",
+              "parentUUID": "8bf93d94-1562-43c2-9f1c-898164e1fb9e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "It should NOT GET all the tasks",
+              "fullTitle": "GET /tasks It should NOT GET all the tasks",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n    .get(\"/task\")\n    .end((err, response) => {\n        response.should.have.status(404);\n    done();\n    });",
+              "err": {},
+              "uuid": "0a7c226b-8f0e-4241-bca3-bceb064d4dcf",
+              "parentUUID": "8bf93d94-1562-43c2-9f1c-898164e1fb9e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b6f61a41-821a-4209-86ed-211ebf7e1d24",
+            "0a7c226b-8f0e-4241-bca3-bceb064d4dcf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        },
+        {
+          "uuid": "153bcdc4-be8c-4ddd-95e0-46b5c2352ca5",
+          "title": "GET /tasks/:id",
+          "fullFile": "E:\\ns\\create-newton-project-cli\\postclass\\abcd\\response-methodss\\__tests__\\test.js",
+          "file": "\\__tests__\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "It should GET a task by ID",
+              "fullTitle": "GET /tasks/:id It should GET a task by ID",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const taskId = 1;\nchai.request(app)                \n    .get(\"/tasks/\" + taskId)\n    .end((err, response) => {\n        response.should.have.status(200);\n        response.body.should.be.a('object');\n        response.body.should.have.property('id');\n        response.body.should.have.property('name');\n        // response.body.should.have.property('completed');\n        response.body.should.have.property('id').eq(1);\n    done();\n    });",
+              "err": {},
+              "uuid": "c17dd891-0bab-4089-b982-fa9b49a38f73",
+              "parentUUID": "153bcdc4-be8c-4ddd-95e0-46b5c2352ca5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "It should NOT GET a task by ID",
+              "fullTitle": "GET /tasks/:id It should NOT GET a task by ID",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const taskId = 123;\nchai.request(app)                \n    .get(\"/tasks/\" + taskId)\n    .end((err, response) => {\n        response.should.have.status(404);\n        response.text.should.be.eq(\"The task with the provided ID does not exist.\");\n    done();\n    });",
+              "err": {},
+              "uuid": "b12ad66a-c588-4a2c-93a8-e7013e37b7ff",
+              "parentUUID": "153bcdc4-be8c-4ddd-95e0-46b5c2352ca5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c17dd891-0bab-4089-b982-fa9b49a38f73",
+            "b12ad66a-c588-4a2c-93a8-e7013e37b7ff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
