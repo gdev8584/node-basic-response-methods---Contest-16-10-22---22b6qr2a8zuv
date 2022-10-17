@@ -25,7 +25,7 @@ app.get("/tasks", (req,res) =>{
     if(req.params.id < 4){
         res.status(200).send(tasks[req.params.id-1])
     }
-    res.sendStatus(404)
+    res.status(404).send('The task with the provided ID does not exist.')
   })
 //code here 
 
