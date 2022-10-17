@@ -21,9 +21,11 @@ app.get("/tasks", (req,res) =>{
     res.send(tasks)
   })
 
-  app.get("/tasks/:id", (req,res,next) =>{
-        res.send(tasks[req.params.id-1])
-    next()
+  app.get("/tasks/:id", (req,res) =>{
+    if(req.params.id < 4){
+        res.status(200).send(tasks[req.params.id-1])
+    }
+    res.status(404)
   })
 //code here 
 
