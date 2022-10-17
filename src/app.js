@@ -17,6 +17,14 @@ app.use(express.json());
       }
   ];
 
+app.get("/tasks", (req,res) =>{
+    res.send(tasks)
+  })
+
+  app.get("/tasks/:id", (req,res,next) =>{
+    res.send(tasks[req.params.id-1])
+    next()
+  })
 //code here 
 
 
